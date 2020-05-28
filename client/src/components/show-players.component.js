@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+
 
 const Player = (props)=>(
     <tr>
@@ -45,7 +45,7 @@ export default class ShowPlayers extends Component{
         .catch(err => console.log(`Error :`+err));
 
         this.setState({
-            players:this.state.players.filter((player) => player._id != id)
+            players:this.state.players.filter((player) => player._id !== id)
         })
     }
     render(){

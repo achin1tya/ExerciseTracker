@@ -34,7 +34,7 @@ export default class CreateExercise  extends Component{
             //     users:['test user'],
             //     username: 'test user'
             // })
-            axios.get('http://localhost:5000/players')
+            axios.get('/players')
             .then(response => {
                 if ( response.data.length > 0 ){
                     this.setState({
@@ -79,7 +79,7 @@ export default class CreateExercise  extends Component{
         console.log(exercise);
          
         // TODO link to DB
-        axios.post('http://localhost:5000/exercises/add',exercise)
+        axios.post('/exercises/add',exercise)
         .then(res => console.log(res.data))
         // to take the person to exercises
         window.location = '/';
