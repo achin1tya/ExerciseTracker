@@ -43,8 +43,7 @@ app.use('/players',playerRouter);
 
 // to make use of heroku 
 // serve static assets if we are in production 
-var express = require('express'),
-   env = process.env.NODE_ENV || 'development';
+env = process.env.NODE_ENV || 'development';
 
  var forceSsl = function (req, res, next) {
     if (req.headers['x-forwarded-proto'] !== 'https') {
@@ -53,14 +52,7 @@ var express = require('express'),
     return next();
  };
 
- app.configure(function () {
-
-    if (env === 'production') {
-        app.use(forceSsl);
-    }
-
-    // other configurations etc for express go here...
-})
+ 
 
 if(process.env.NODE_ENV === 'production'){
     // set static folder
@@ -69,6 +61,7 @@ if(process.env.NODE_ENV === 'production'){
     app.use('*',(req,res)=>{
         res.sendfile(path.resolve(__dirname,'client','build','index.html'))
     })
+    app.use(forceSsl)
 }
 // app.use(express.static(path.join(__dirname,"client","build")))
 
