@@ -24,7 +24,7 @@ export default class ShowPlayers extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/players/')
+        axios.get('/players/')
         .then((response) => {
             this.setState({
                 players:response.data
@@ -38,7 +38,7 @@ export default class ShowPlayers extends Component{
     }
 
     deletePlayer(id){
-        axios.delete('http://localhost:5000/players/'+id)
+        axios.delete('/players/'+id)
         .then((response) => {
             console.log(response)
         })

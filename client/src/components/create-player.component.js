@@ -26,7 +26,7 @@ export default class CreatePlayer extends Component{
 
         console.log(player);
 
-        axios.post('http://localhost:5000/players/add/' , player)
+        axios.post('/players/add/' , player)
         .then(res => console.log(res.data));
         
         this.setState({

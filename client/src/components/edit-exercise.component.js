@@ -26,7 +26,7 @@ export default class EditExercise extends Component{
     }
     componentDidMount(){
         // to get the username by exercise 
-        axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+        axios.get('/exercises/'+this.props.match.params.id)
         .then((response)=>{
             this.setState({
                 username:response.data.username,
@@ -37,7 +37,7 @@ export default class EditExercise extends Component{
         })
         .catch((error)=>console.log("Error:"+error));
         // get the users 
-        axios.get('http://localhost:5000/players/')
+        axios.get('/players/')
         .then( (response) => {
             this.setState({
                 users:response.data.map((user)=>user.username)
@@ -81,7 +81,7 @@ export default class EditExercise extends Component{
         console.log(exercise);
          
         // TODO link to DB
-        axios.post('http://localhost:5000/exercises/update/'+this.props.match.params.id,exercise)
+        axios.post('/exercises/update/'+this.props.match.params.id,exercise)
         .then(res => console.log(res.data))
         // to take the person to exercises
         window.location = '/';
