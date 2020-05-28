@@ -20,7 +20,7 @@ const port = process.env.PORT||5000;
 // uri is where database is stored
 const uri = process.env.MONGODB_URI;
 // due to some updates to mongodb we used flags 
-mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true});
+mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true,useUnifiedTopology: true});
 const connection = mongoose.connection;
 
 connection.on('connected' , ()=>{
